@@ -1,0 +1,29 @@
+.desktop-area {
+  background-color: #f0f5fc;
+  width: 100%;
+}
+
+.left-column,
+.right-column {
+  background-color: #ffffff;
+
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+
+}
+
+.appointments {
+
+}
+
+.appointments ul {
+  list-style: none;
+  padding: 0;
+}
+.appointments li {
+  padding: 10px;
+  border-bottom: 1px solid #d0d7e2;
+}
