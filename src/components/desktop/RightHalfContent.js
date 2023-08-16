@@ -6,11 +6,10 @@ const RightHalfContent = ({ selectedDate, appointmentsData }) => {
     const [currentDoctorIndex, setCurrentDoctorIndex] = useState(0);
 
     useEffect(() => {
-        // Filter appointments for the selected date
+        // FILTRANDO PELA DATA SELECIONA
         const filteredAppointments = appointmentsData.filter(appointment => appointment.date === selectedDate.toISOString().split('T')[0]);
 
-
-        // Calculate doctor statistics for the selected date
+        // CÁLCULO DAS ESTATPISTÍSTICAS DO MÉDICO
         const doctorAppointments = {};
         filteredAppointments.forEach(appointment => {
             if (doctorAppointments[appointment.doctor]) {
@@ -31,7 +30,7 @@ const RightHalfContent = ({ selectedDate, appointmentsData }) => {
     }, [selectedDate, appointmentsData]);
 
     useEffect(() => {
-        // Cycle through doctors every 3 seconds
+        // CICLO DE RENDERIZAÇÃO EM 3 SEGUNDOS
         const interval = setInterval(() => {
             setCurrentDoctorIndex((currentDoctorIndex + 1) % doctorStats.length);
         }, 3000);
@@ -65,7 +64,6 @@ const RightHalfContent = ({ selectedDate, appointmentsData }) => {
             </Row>
         </Col>
     );
-    
 };
 
 export default RightHalfContent;

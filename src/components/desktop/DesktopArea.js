@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import MyCalendar from './Calendar';
+
+import AppointmentList from './AppointmentList';
+import BarChart from './BarChart';
+import RightHalfContent from './RightHalfContent';
+import InsuranceTable from './InsuranceTable';
+
+import insuranceAprovalData from '../../database/insuranceAproval.json';
 import appointmentsData from '../../database/appointment.json';
+import doctorsData from '../../database/doctors.json';
+import patientData from '../../database/patient.json';
+import insuranceCompanyData from '../../database/insuranceCompany.json'
+
+import './BarChart.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './DesktopArea.css';
-import BarChart from './BarChart';
-import './BarChart.css';
-import RightHalfContent from './RightHalfContent';
 
 
 const DesktopArea = () => {
@@ -26,6 +35,7 @@ const DesktopArea = () => {
     return (
         <div className="desktop-area  p-0">
             <Container fluid className=" h-100 p-0 ">
+
                 <Row className=" h-100">
                     <Col md={8} className=" h-100">
                         <div className="left-column p-3">
@@ -37,46 +47,38 @@ const DesktopArea = () => {
                                     </Form.Group>
                                 </Form>
                             </Row>
-                            <h2>Dashbord</h2>
+
+                            <h2 className="p-4">Dashbord Semanal</h2>
                             <Row className="p-3 m-0">
                                 <Col md={8} className="bar-chart p-0">
                                     <BarChart appointmentsData={appointmentsData} />
                                 </Col>
                                 <Col md={4} className="p-0 d-flex justify-content-end ">
-                                    <RightHalfContent selectedDate={selectedDate} appointmentsData={filteredAppointments} className="w-100"/>
+                                    <RightHalfContent selectedDate={selectedDate} appointmentsData={filteredAppointments} className="w-100" />
                                 </Col>
                             </Row>
-                            <h2>Apontamentos</h2>
-                            <Row className="p-3">
-                                base
+
+                            <h2 className="p-4">Aprovações Convênio</h2>
+                            <Row className="p-3 m-0" >
+                                <InsuranceTable insuranceAprovalData={insuranceAprovalData} doctorsData={doctorsData} insuranceCompanyData={insuranceCompanyData} patientData={patientData} />
                             </Row>
 
                         </div>
                     </Col>
+
                     <Col md={4} className=" h-100">
                         <div className="right-column p-3 d-flex flex-column justify-content-center align-items-center">
                             <h2 className="mb-4">Calendário de Consultas</h2>
                             <MyCalendar onSelectDate={setSelectedDate} className="w-100 border-0" />
-                            <div className="appointments p-3 d-flex flex-column justify-content-center align-items-center w-100">
-                                <h4 className="mb-4">Consultas Agendadas</h4>
-                                <ul className="list-group w-100">
-                                    {chunkArray(filteredAppointments, 2).map((appointmentsPair, index) => (
-                                        <li key={index} className="list-group-item d-flex">
-                                            {appointmentsPair.map((appointment, innerIndex) => (
-                                                <div key={innerIndex} className="col-md-6">
-                                                    <strong>Paciente:</strong> {appointment.patientName}<br />
-                                                    <strong>Fone:</strong> {appointment.patientPhone} <br />
-                                                    <strong>Médico:</strong> {appointment.doctor}<br />
-                                                    <strong>Horário:</strong> {appointment.time}
-                                                </div>
-                                            ))}
-                                        </li>
-                                    ))}
-                                </ul>
-
-                            </div>
+                            <AppointmentList
+                                filteredAppointments={filteredAppointments}
+                                chunkArray={chunkArray}
+                                patientData={patientData}
+                                doctorsData={doctorsData}
+                            />
                         </div>
                     </Col>
+
                 </Row>
             </Container>
         </div>

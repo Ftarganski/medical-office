@@ -3,32 +3,38 @@ import React from 'react';
 const BarChart = ({ appointmentsData }) => {
     const generateBarChart = (appointmentsData) => {
         const currentDate = new Date();
-        const weeks = [];
+        const days = [];
+
+        // DEFININDO O DIA ATUAL
+        const currentDayOfWeek = currentDate.getDay();
+
+        // DEFININDO PRIMEIRO DIA DA SEMANA
+        const firstDayOfWeek = new Date(currentDate);
+        firstDayOfWeek.setDate(currentDate.getDate() - currentDayOfWeek + 1);
+
+        // ARRAY DA SEMANA CORRENTE EM DIAS ÚTEIS
         for (let i = 0; i < 5; i++) {
-            const firstDayOfWeek = new Date(currentDate);
-            firstDayOfWeek.setDate(currentDate.getDate() + i * 7 - currentDate.getDay());
-            const lastDayOfWeek = new Date(firstDayOfWeek);
-            lastDayOfWeek.setDate(firstDayOfWeek.getDate() + 6);
-            weeks.push({ start: firstDayOfWeek, end: lastDayOfWeek });
+            const day = new Date(firstDayOfWeek);
+            day.setDate(firstDayOfWeek.getDate() + i);
+            days.push(day);
         }
 
         const appointmentsCount = [0, 0, 0, 0, 0];
         for (const appointment of appointmentsData) {
             const appointmentDate = new Date(appointment.date);
             for (let i = 0; i < 5; i++) {
-                if (appointmentDate >= weeks[i].start && appointmentDate <= weeks[i].end) {
+                if (appointmentDate.toDateString() === days[i].toDateString()) {
                     appointmentsCount[i]++;
                 }
             }
         }
+        const maxAppointments = 16; // MÁXIMO DE CONSULTAS DIÁRIAS
 
-        const maxAppointments = Math.max(...appointmentsCount);
-
-        const bars = weeks.map((week, index) => {
+        const bars = days.map((day, index) => {
             const barWidth = (appointmentsCount[index] / maxAppointments) * 100;
             return (
                 <div key={index} className="horizontal-bar mr-2">
-                    <div className="bar-label p-2"><h6>Semana: {week.start.toLocaleDateString()}</h6></div>
+                    <div className="bar-label p-2"><h6>Dia: {day.toLocaleDateString()}</h6></div>
                     <div className="progress" style={{ width: '100%' }}>
                         <div className="progress-bar" role="progressbar" style={{ width: `${barWidth}%` }}>
                             {appointmentsCount[index]}
@@ -37,16 +43,13 @@ const BarChart = ({ appointmentsData }) => {
                 </div>
             );
         });
-
         return bars;
     };
-
     return (
-        <div className="bar-chart-horizontal w-100 h-100  p-0 ">
+        <div className="bar-chart-horizontal w-100 h-100 p-0 ">
             {generateBarChart(appointmentsData)}
         </div>
     );
 };
 
 export default BarChart;
-

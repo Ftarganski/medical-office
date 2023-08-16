@@ -1,0 +1,26 @@
+[
+  {
+    "doctorName": "Dr. Silva",
+    "doctorCRM": "123456-01",
+    "doctorPhone": "(11) 5555-1234",
+    "doctorCPF": "666.777.888-99"
+  },
+  {
+    "doctorName": "Dr. Santos",
+    "doctorCRM": "123456-01",
+    "doctorPhone": "(11) 5555-8765",
+    "doctorCPF": "123.456.789-12"
+  },
+  {
+    "doctorName": "Dr. Lima",
+    "doctorCRM": "123456-01",
+    "doctorPhone": "(11) 5555-1113",
+    "doctorCPF": "987.654.321-23"
+  },
+  {
+    "doctorName": "Dr. Oliveira",
+    "doctorCRM": "123456-01",
+    "doctorPhone": "(11) 5555-1113",
+    "doctorCPF": "987.654.321-23"
+  }
+]

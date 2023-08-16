@@ -1,0 +1,19 @@
+[
+  {
+    "insuranceCompany": "Seguro Saúde",
+    "insurancePhone": "(11) 5555-1234"
+  },
+  {
+    "insuranceCompany": "Plano Médico",
+    "insurancePhone": "(11) 5555-1234"
+  },
+  {
+    "insuranceCompany": "Convênio Saúde",
+    "insurancePhone": "(11) 5555-1234"
+  },
+
+  {
+    "insuranceCompany": "Plano de Saúde A",
+    "insurancePhone": "(11) 5555-1234"
+  }
+]

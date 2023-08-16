@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2023-08-16",
+    "patientId": 12,
+    "doctorId": 0,
+    "insuranceCompanyID": 1,
+    "approval": "Aprovado"
+  },
+  {
+    "date": "2023-08-16",
+    "patientId": 9,
+    "doctorId": 1,
+    "insuranceCompanyID": 1,
+    "approval": "Aprovado"
+  },
+  {
+    "date": "2023-08-18",
+    "patientId": 15,
+    "doctorId": 2,
+    "insuranceCompanyID": 3,
+    "approval": "Pendente"
+  },
+  {
+    "date": "2023-08-19",
+    "patientId": 7,
+    "doctorId": 3,
+    "insuranceCompanyID": 2,
+    "approval": "Negado"
+  },
+  {
+    "date": "2023-08-20",
+    "patientId": 8,
+    "doctorId": 0,
+    "insuranceCompanyID": 0,
+    "approval": "Aprovado"
+  },
+  {
+    "date": "2023-08-21",
+    "patientId": 6,
+    "doctorId": 1,
+    "insuranceCompanyID": 0,
+    "approval": "Pendente"
+  },
+  {
+    "date": "2023-08-22",
+    "patientId": 5,
+    "doctorId": 2,
+    "insuranceCompanyID": 2,
+    "approval": "Aprovado"
+  },
+  {
+    "date": "2023-08-23",
+    "patientId": 16,
+    "doctorId": 3,
+    "insuranceCompanyID": 1,
+    "approval": "Negado"
+  },
+  {
+    "date": "2023-08-24",
+    "patientId": 18,
+    "doctorId": 0,
+    "insuranceCompanyID": 0,
+    "approval": "Aprovado"
+  },
+  {
+    "date": "2023-08-25",
+    "patientId": 2,
+    "doctorId": 1,
+    "insuranceCompanyID": 2,
+    "approval": "Aprovado"
+  }
+]
