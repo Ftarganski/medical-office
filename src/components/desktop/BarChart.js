@@ -25,13 +25,16 @@ const BarChart = ({ appointmentsData }) => {
         const bars = weeks.map((week, index) => {
             const barHeight = (appointmentsCount[index] / Math.max(...appointmentsCount)) * 100;
             return (
-                <div className="bar" key={index}>
-                    <div className="bar-fill" style={{ height: `${barHeight}%` }}>
-                        {appointmentsCount[index]}
+                <div className="bar mb-3">
+                    <div className="progress" style={{ height: '100%' }}>
+                        <div className="progress-bar" role="progressbar" style={{ width: `${barHeight}%` }}>
+                            {appointmentsCount[index]}
+                        </div>
                     </div>
-                    <div className="bar-label">{week.start.toLocaleDateString()}</div>
+                    <div className="bar-label p-2">{week.start.toLocaleDateString()}</div>
                 </div>
             );
+            
         });
 
         return bars;
