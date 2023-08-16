@@ -4,7 +4,7 @@ const AppointmentViewer = () => {
   return (
     <div className="appointment-viewer">
       <div className="patient-data">
-        {/* Display patient data here */}
+        VER AGENDA
       </div>
       <div className="appointment-details">
         {/* Display appointment details here */}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 const RightHalfContent = ({ selectedDate, appointmentsData }) => {
     const [doctorStats, setDoctorStats] = useState([]);
@@ -45,23 +45,27 @@ const RightHalfContent = ({ selectedDate, appointmentsData }) => {
     const currentDoctor = doctorStats[currentDoctorIndex];
 
     return (
-        <Col md={6}>
-        <div className="box mb-3 p-3 rounded bg-primary text-center">
-            <h4 className="text-white">Lotação</h4>
-            <h3 className="text-white">{occupancyPercentage.toFixed(2)}%</h3>
-        </div>
-        <div className="box p-3 rounded bg-secondary text-center">
-            <h4 className="text-white">Agendamentos</h4>
-            {currentDoctor && (
-                <h3 className="text-white">
-                    <strong>{currentDoctor.name}</strong><br />
-                    {currentDoctor.appointments} consultas
-                </h3>
-            )}
-        </div>
-    </Col>
-    
+        <Col md={11}>
+            <Row className="box mb-3 p-3 rounded bg-primary text-center">
+                <h4 className="text-white">Lotação Diária</h4>
+                <h3 className="text-white">{occupancyPercentage.toFixed(2)}%</h3>
+            </Row>
+            <Row className="box p-3 rounded bg-secondary text-center">
+                <h4 className="text-white">Agendamentos</h4>
+                {currentDoctor ? (
+                    <h3 className="text-white">
+                        <strong>{currentDoctor.name}</strong><br />
+                        {currentDoctor.appointments} consultas
+                    </h3>
+                ) : (
+                    <h3 className="text-white">
+                        Não há agendamentos
+                    </h3>
+                )}
+            </Row>
+        </Col>
     );
+    
 };
 
 export default RightHalfContent;

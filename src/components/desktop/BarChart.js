@@ -22,29 +22,31 @@ const BarChart = ({ appointmentsData }) => {
             }
         }
 
+        const maxAppointments = Math.max(...appointmentsCount);
+
         const bars = weeks.map((week, index) => {
-            const barHeight = (appointmentsCount[index] / Math.max(...appointmentsCount)) * 100;
+            const barWidth = (appointmentsCount[index] / maxAppointments) * 100;
             return (
-                <div className="bar mb-3">
-                    <div className="progress" style={{ height: '100%' }}>
-                        <div className="progress-bar" role="progressbar" style={{ width: `${barHeight}%` }}>
+                <div key={index} className="horizontal-bar mr-2">
+                    <div className="bar-label p-2"><h6>Semana: {week.start.toLocaleDateString()}</h6></div>
+                    <div className="progress" style={{ width: '100%' }}>
+                        <div className="progress-bar" role="progressbar" style={{ width: `${barWidth}%` }}>
                             {appointmentsCount[index]}
                         </div>
                     </div>
-                    <div className="bar-label p-2">{week.start.toLocaleDateString()}</div>
                 </div>
             );
-            
         });
 
         return bars;
     };
 
     return (
-        <div className="bar-chart">
+        <div className="bar-chart-horizontal w-100 h-100  p-0 ">
             {generateBarChart(appointmentsData)}
         </div>
     );
 };
 
 export default BarChart;
+

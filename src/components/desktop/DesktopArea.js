@@ -29,28 +29,28 @@ const DesktopArea = () => {
                 <Row className=" h-100">
                     <Col md={8} className=" h-100">
                         <div className="left-column p-3">
-                            <div className="search-form p-3">
+
+                            <Row className="p-3">
                                 <Form>
                                     <Form.Group>
                                         <Form.Control type="text" placeholder="Pesquisar" />
                                     </Form.Group>
                                 </Form>
-                            </div>
+                            </Row>
+                            <h2>Dashbord</h2>
+                            <Row className="p-3 m-0">
+                                <Col md={8} className="bar-chart p-0">
+                                    <BarChart appointmentsData={appointmentsData} />
+                                </Col>
+                                <Col md={4} className="p-0 d-flex justify-content-end ">
+                                    <RightHalfContent selectedDate={selectedDate} appointmentsData={filteredAppointments} className="w-100"/>
+                                </Col>
+                            </Row>
+                            <h2>Apontamentos</h2>
+                            <Row className="p-3">
+                                base
+                            </Row>
 
-                            <div className="middle-row p-3">
-                                <Row>
-                                    <div className="bar-chart">
-                                        <BarChart appointmentsData={appointmentsData} />
-                                    </div>
-                                    <Col md={6}>
-    <RightHalfContent selectedDate={selectedDate} appointmentsData={filteredAppointments} />
-</Col>
-                                </Row>
-                            </div>
-
-                            <div className="bottom-row p-3">
-                                {/* Content for bottom row */}
-                            </div>
                         </div>
                     </Col>
                     <Col md={4} className=" h-100">

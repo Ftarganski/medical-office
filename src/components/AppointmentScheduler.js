@@ -4,7 +4,7 @@ const AppointmentScheduler = () => {
   return (
     <div className="appointment-scheduler">
       <div className="doctor-agenda">
-        {/* Display doctor's agenda here */}
+        AGENDAR
       </div>
       <div className="appointment-form">
         {/* Display appointment form here */}

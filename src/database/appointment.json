@@ -209,5 +209,15 @@
     "doctor": "Dr. Oliveira",
     "date": "2023-08-16",
     "time": "15:00 AM"
+  },
+  {
+    "patientName": "Carolina Costa",
+    "patientCPF": "987.654.321-23",
+    "patientBirthDate": "1983-08-30",
+    "patientAddress": "Avenida Principal, 654",
+    "patientPhone": "(11) 5555-1113",
+    "doctor": "Dr. Oliveira",
+    "date": "2023-08-22",
+    "time": "15:00 AM"
   }
 ]

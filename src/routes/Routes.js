@@ -8,8 +8,8 @@ const RoutesApp = () => {
     return (
         <Routes>
             <Route path="/" element={<DesktopArea />} />
-            <Route path="/agendar-consulta" component={AppointmentScheduler} />
-            <Route path="/ver-agenda" component={AppointmentViewer} />
+            <Route path="/agendar-consulta"element={<AppointmentScheduler/>} />
+            <Route path="/ver-agenda" element={<AppointmentViewer/>} />
         </Routes>
     );
 };
