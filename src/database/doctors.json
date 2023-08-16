@@ -3,24 +3,140 @@
     "doctorName": "Dr. Silva",
     "doctorCRM": "123456-01",
     "doctorPhone": "(11) 5555-1234",
-    "doctorCPF": "666.777.888-99"
+    "doctorCPF": "666.777.888-99",
+    "weekDay": {
+      "mon": true,
+      "tue": false,
+      "wed": true,
+      "thu": false,
+      "fri": true
+    },
+    "doctorArea": "Otorrino"
   },
   {
     "doctorName": "Dr. Santos",
-    "doctorCRM": "123456-01",
+    "doctorCRM": "123456-02",
     "doctorPhone": "(11) 5555-8765",
-    "doctorCPF": "123.456.789-12"
+    "doctorCPF": "123.456.789-12",
+    "weekDay": {
+      "mon": false,
+      "tue": true,
+      "wed": false,
+      "thu": true,
+      "fri": false
+    },
+    "doctorArea": "Cardiologista"
   },
   {
     "doctorName": "Dr. Lima",
-    "doctorCRM": "123456-01",
+    "doctorCRM": "123456-03",
     "doctorPhone": "(11) 5555-1113",
-    "doctorCPF": "987.654.321-23"
+    "doctorCPF": "987.654.321-23",
+    "weekDay": {
+      "mon": true,
+      "tue": false,
+      "wed": true,
+      "thu": false,
+      "fri": true
+    },
+    "doctorArea": "Pediatra"
   },
   {
     "doctorName": "Dr. Oliveira",
-    "doctorCRM": "123456-01",
+    "doctorCRM": "123456-04",
     "doctorPhone": "(11) 5555-1113",
-    "doctorCPF": "987.654.321-23"
+    "doctorCPF": "987.654.321-23",
+    "weekDay": {
+      "mon": false,
+      "tue": true,
+      "wed": false,
+      "thu": true,
+      "fri": false
+    },
+    "doctorArea": "Dermatologista"
+  },
+  {
+    "doctorName": "Dr. Johnson",
+    "doctorCRM": "234567-01",
+    "doctorPhone": "(11) 5555-2345",
+    "doctorCPF": "111.222.333-44",
+    "weekDay": {
+      "mon": true,
+      "tue": false,
+      "wed": true,
+      "thu": false,
+      "fri": true
+    },
+    "doctorArea": "Ginecologista"
+  },
+  {
+    "doctorName": "Dr. Williams",
+    "doctorCRM": "234567-02",
+    "doctorPhone": "(11) 5555-3456",
+    "doctorCPF": "222.333.444-55",
+    "weekDay": {
+      "mon": false,
+      "tue": true,
+      "wed": false,
+      "thu": true,
+      "fri": false
+    },
+    "doctorArea": "Ortopedista"
+  },
+  {
+    "doctorName": "Dr. Brown",
+    "doctorCRM": "234567-03",
+    "doctorPhone": "(11) 5555-4567",
+    "doctorCPF": "333.444.555-66",
+    "weekDay": {
+      "mon": true,
+      "tue": false,
+      "wed": true,
+      "thu": false,
+      "fri": true
+    },
+    "doctorArea": "Neurologista"
+  },
+  {
+    "doctorName": "Dr. Taylor",
+    "doctorCRM": "234567-04",
+    "doctorPhone": "(11) 5555-5678",
+    "doctorCPF": "444.555.666-77",
+    "weekDay": {
+      "mon": false,
+      "tue": true,
+      "wed": false,
+      "thu": true,
+      "fri": false
+    },
+    "doctorArea": "Psiquiatra"
+  },
+  {
+    "doctorName": "Dr. Miller",
+    "doctorCRM": "234567-05",
+    "doctorPhone": "(11) 5555-6789",
+    "doctorCPF": "555.666.777-88",
+    "weekDay": {
+      "mon": true,
+      "tue": false,
+      "wed": true,
+      "thu": false,
+      "fri": true
+    },
+    "doctorArea": "Urologista"
+  },
+  {
+    "doctorName": "Dr. Jackson",
+    "doctorCRM": "234567-06",
+    "doctorPhone": "(11) 5555-7890",
+    "doctorCPF": "666.777.888-99",
+    "weekDay": {
+      "mon": false,
+      "tue": true,
+      "wed": false,
+      "thu": true,
+      "fri": false
+    },
+    "doctorArea": "Endocrinologista"
   }
 ]

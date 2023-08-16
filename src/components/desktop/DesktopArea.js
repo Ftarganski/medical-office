@@ -66,6 +66,7 @@ const DesktopArea = () => {
                         </div>
                     </Col>
 
+
                     <Col md={4} className=" h-100">
                         <div className="right-column p-3 d-flex flex-column justify-content-center align-items-center">
                             <h2 className="mb-4">Calendário de Consultas</h2>
