@@ -17,13 +17,9 @@ import './BarChart.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './DesktopArea.css';
 
-
 const DesktopArea = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const filteredAppointments = appointmentsData.filter(
-        (appointment) => appointment.date === selectedDate.toISOString().split('T')[0]
-    );
-
+  
     return (
         <div className="desktop-area  p-0">
             <Container fluid className=" h-100 p-0 ">
@@ -43,8 +39,7 @@ const DesktopArea = () => {
                             <h2 className="p-4">Dashbord Semanal</h2>
                             <Row className="p-3 m-0">
                                 <Col md={8} className="bar-chart p-0">
-                                    <BarChart appointmentsData={appointmentsData} />
-                                </Col>
+                                    <BarChart appointmentsData={appointmentsData} selectedDate={selectedDate} />  </Col>
                                 <Col md={4} className="p-0 d-flex justify-content-end ">
                                     <DataContent selectedDate={selectedDate} appointmentsData={appointmentsData} doctorsData={doctorsData} />
                                 </Col>
@@ -58,13 +53,13 @@ const DesktopArea = () => {
                         </div>
                     </Col>
 
-
                     <Col md={4} className=" h-100">
                         <div className="right-column p-3 d-flex flex-column justify-content-center align-items-center">
                             <h2 className="mb-4">Calendário de Consultas</h2>
                             <MyCalendar onSelectDate={setSelectedDate} className="w-100 border-0" />
                             <AppointmentList
-                                filteredAppointments={filteredAppointments}
+                                appointmentsData={appointmentsData}
+                                selectedDate={selectedDate}
                                 patientData={patientData}
                                 doctorsData={doctorsData}
                             />

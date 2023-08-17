@@ -2,6 +2,13 @@
   {
     "patientID": 0,
     "doctorID": 0,
+    "date": "2023-08-14",
+    "time": "09:00:00",
+    "value": 450
+  },
+  {
+    "patientID": 0,
+    "doctorID": 0,
     "date": "2023-08-15",
     "time": "09:00:00",
     "value": 450
@@ -78,79 +85,80 @@
   },
   {
     "patientID": 11,
-    "doctorID": 3,
-    "date": "2023-08-18",
-    "time": "09:00:00",
-    "value": 250
-  },
-  {
-    "patientID": 12,
-    "doctorID": 0,
-    "date": "2023-08-18",
-    "time": "10:00:00",
-    "value": 450
-  },
-  {
-    "patientID": 13,
-    "doctorID": 2,
+    "doctorID": 1,
     "date": "2023-08-16",
     "time": "10:00:00",
-    "value": 450
+    "value": 350
   },
   {
     "patientID": 14,
-    "doctorID": 3,
-    "date": "2023-08-18",
-    "time": "11:00:00",
-    "value": 300
-  },
-  {
-    "patientID": 15,
     "doctorID": 1,
     "date": "2023-08-16",
-    "time": "11:00:00",
+    "time": "13:00:00",
     "value": 350
   },
   {
-    "patientID": 16,
-    "doctorID": 0,
+    "patientID": 2,
+    "doctorID": 1,
     "date": "2023-08-16",
-    "time": "13:00:00",
+    "time": "16:00:00",
     "value": 350
   },
   {
-    "patientID": 17,
-    "doctorID": 3,
-    "date": "2023-08-18",
-    "time": "13:00:00",
-    "value": 450
+    "patientID": 5,
+    "doctorID": 1,
+    "date": "2023-08-14",
+    "time": "17:00:00",
+    "value": 350
   },
   {
-    "patientID": 18,
+    "patientID": 2,
     "doctorID": 2,
-    "date": "2023-08-16",
-    "time": "14:00:00",
+    "date": "2023-08-18",
+    "time": "09:00:00",
     "value": 350
   },
   {
-    "patientID": 19,
-    "doctorID": 0,
+    "patientID": 4,
+    "doctorID": 2,
     "date": "2023-08-18",
-    "time": "14:00:00",
-    "value": 400
-  },
-  {
-    "patientID": 20,
-    "doctorID": 1,
-    "date": "2023-08-16",
-    "time": "15:00:00",
+    "time": "10:00:00",
     "value": 350
   },
   {
-    "patientID": 21,
-    "doctorID": 3,
+    "patientID": 6,
+    "doctorID": 2,
     "date": "2023-08-18",
-    "time": "15:00:00",
-    "value": 300
+    "time": "11:00:00",
+    "value": 350
+  },
+  {
+    "patientID": 8,
+    "doctorID": 2,
+    "date": "2023-08-18",
+    "time": "16:00:00",
+    "value": 350
+  },
+  {
+    "patientID": 10,
+    "doctorID": 2,
+    "date": "2023-08-18",
+    "time": "17:00:00",
+    "value": 350
+  }
+  ,
+  {
+    "patientID": 12,
+    "doctorID": 2,
+    "date": "2023-08-18",
+    "time": "13:00:00",
+    "value": 350
+  },
+  {
+    "patientID": 14,
+    "doctorID": 2,
+    "date": "2023-08-18",
+    "time": "14:00:00",
+    "value": 350
   }
 ]

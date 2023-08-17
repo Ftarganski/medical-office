@@ -1,16 +1,15 @@
 import React from 'react';
 
-const BarChart = ({ appointmentsData }) => {
+const BarChart = ({ appointmentsData, selectedDate }) => {
     const generateBarChart = (appointmentsData) => {
-        const currentDate = new Date();
         const days = [];
 
         // DEFININDO O DIA ATUAL
-        const currentDayOfWeek = currentDate.getDay();
+        const currentDayOfWeek = selectedDate.getDay();
 
         // DEFININDO PRIMEIRO DIA DA SEMANA
-        const firstDayOfWeek = new Date(currentDate);
-        firstDayOfWeek.setDate(currentDate.getDate() - currentDayOfWeek + 1);
+        const firstDayOfWeek = new Date(selectedDate);
+        firstDayOfWeek.setDate(selectedDate.getDate() - currentDayOfWeek + 1);
 
         // ARRAY DA SEMANA CORRENTE EM DIAS ÚTEIS
         for (let i = -1; i < 4; i++) {
@@ -34,9 +33,9 @@ const BarChart = ({ appointmentsData }) => {
             const barWidth = (appointmentsCount[index] / maxAppointments) * 100;
             return (
                 <div key={index} className="horizontal-bar mr-2">
-                    
+
                     <div className="bar-label p-2"><h6>Dia: {new Date(day.getTime() + 24 * 60 * 60 * 1000).toLocaleDateString()}</h6></div>
-                    
+
                     <div className="progress" style={{ width: '100%' }}>
                         <div className="progress-bar" role="progressbar" style={{ width: `${barWidth}%` }}>
                             {appointmentsCount[index]}
