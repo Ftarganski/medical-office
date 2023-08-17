@@ -76,8 +76,7 @@ journey
 
 ### Pré-requisitos
 Antes de prosseguir com a implantação, é necessário garantir que o ambiente de desenvolvimento atenda aos seguintes pré-requisitos:
-Node.js (versão 12 ou superior) instalado no servidor de hospedagem
-Gerenciador de pacotes npm instalado
+`Node.js` (versão 12 ou superior) instalado e gerenciador de pacotes `npm` instalado.
 
 ### Etapas de Implantação
 Siga as etapas abaixo para implantar o código web:
