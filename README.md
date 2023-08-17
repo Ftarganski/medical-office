@@ -62,7 +62,7 @@ journey
       16/08: 5
     section Execução
       16/08: 5
-      17/08: 3
+      17/08: 5
     section Deploy
       17/08: 5
     section Documentação
@@ -70,14 +70,14 @@ journey
 ```
 
 ## ⚙️ Linguagens de Programação Utilizadas
-[![My Skills](https://skillicons.dev/icons?i=nextjs,html,css,js,ts&theme=light)](https://www.linkedin.com/in/targanski/)
+[![My Skills](https://skillicons.dev/icons?i=react,js,html,css,materialui&theme=dark)](https://www.linkedin.com/in/targanski/)
 
 ## 🖥️ Documentação de Implantação
 
 ### Pré-requisitos
 Antes de prosseguir com a implantação, é necessário garantir que o ambiente de desenvolvimento atenda aos seguintes pré-requisitos:
 Node.js (versão 12 ou superior) instalado no servidor de hospedagem
-Gerenciador de pacotes npm (ou yarn) instalado
+Gerenciador de pacotes npm instalado
 
 ### Etapas de Implantação
 Siga as etapas abaixo para implantar o código web:
@@ -91,28 +91,23 @@ git clone https://github.com/Ftarganski/leadster.git
 
 3. Execute o seguinte comando para instalar as dependências do projeto:
 ```bash
-yarn install
+npm install
 ```
 
 4. Após a conclusão da instalação das dependências, execute o seguinte comando para iniciar a aplicação:
 ```bash
-yarn dev
+npm start
 ```
 Este comando irá iniciar a aplicação no modo de desenvolvimento.
 
 5. Acesse a aplicação web no navegador utilizando o endereço local: 
 [http://localhost:3000](http://localhost:3000)
 
-## 📄 Configurações Adicionais
-
-### Metadados
-A página inicial `/index.tsx` e o componente `/HeadSite.tsx` contêm metadados importantes para SEO e exibição nos motores de busca. Certifique-se de atualizar as informações conforme necessário, incluindo o título, descrição, palavras-chave e favicon.
-
-### Imagens e Logos
-Certifique-se de substituir as imagens de exemplo pelos arquivos corretos da sua aplicação. As imagens estão localizadas na pasta `/public/images`. Certifique-se de manter a estrutura correta de pastas e atualize as referências de imagem nos componentes apropriados.
-
-### Dados dos Vídeos
-O componente `/GridVideos.tsx` utiliza dados estáticos de vídeos a partir de um arquivo JSON `/Main/videos.json`. Certifique-se de atualizar os dados do arquivo JSON com os vídeos corretos da sua aplicação.
+### Build
+```bash
+npm run build
+```
+Para criar o aplicativo para produção na pasta `build`. Este comando irá empacotar o React no modo de produção e otimizar a compilação para obter o melhor desempenho. A compilação será minificada e os nomes dos arquivos itão incluir os hashes.
 
 ### Considerações Finais
 Após a conclusão dessas etapas, o código web estará implantado e acessível por meio do servidor de hospedagem. Certifique-se de realizar os testes necessários para garantir que a aplicação esteja funcionando conforme o esperado.
@@ -120,84 +115,4 @@ Após a conclusão dessas etapas, o código web estará implantado e acessível 
 Lembre-se de que esta documentação cobre apenas a implantação do código web. Outros aspectos, como implantação de banco de dados, configurações de servidor e escalabilidade, podem exigir etapas adicionais que não são abordadas aqui.
 
 ### Deploy de Desenvolvimento
-O deploy de desenvolvimento foi realizado na plataforma Vercel e pode ser acessado em [Deploy Leadster](https://leadster-alpha.vercel.app/) 
-
-
-
-
-
-
-======================================================
-
-
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+O deploy de desenvolvimento foi realizado na plataforma Vercel e pode ser acessado em [Deploy Advice Health](https://medical-office.vercel.app/). 
