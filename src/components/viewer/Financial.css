@@ -1,0 +1,12 @@
+.viewer-area {
+  background-color: #f0f5fc;
+  width: 100%;
+  height: auto;
+}
+
+.right-column
+{
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

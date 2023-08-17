@@ -32,8 +32,8 @@ const SidebarMenu = () => {
           </Link>
         </li>
         <li className="list-group-item bg-dark text-white">
-          <Link to="/ver-agenda" className="text-white text-decoration-none">
-            {menuActive ? 'Ver Agenda' : <BsCalendar2Month size={20} />}
+          <Link to="/financial" className="text-white text-decoration-none">
+            {menuActive ? 'Financeiro' : <BsCalendar2Month size={20} />}
           </Link>
         </li>
       </ul>

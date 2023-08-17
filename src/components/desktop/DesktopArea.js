@@ -4,7 +4,7 @@ import MyCalendar from './Calendar';
 
 import AppointmentList from './AppointmentList';
 import BarChart from './BarChart';
-import RightHalfContent from './RightHalfContent';
+import DataContent from './DataContent';
 import InsuranceTable from './InsuranceTable';
 
 import insuranceAprovalData from '../../database/insuranceAproval.json';
@@ -23,14 +23,6 @@ const DesktopArea = () => {
     const filteredAppointments = appointmentsData.filter(
         (appointment) => appointment.date === selectedDate.toISOString().split('T')[0]
     );
-
-    function chunkArray(array, chunkSize) {
-        const result = [];
-        for (let i = 0; i < array.length; i += chunkSize) {
-            result.push(array.slice(i, i + chunkSize));
-        }
-        return result;
-    }
 
     return (
         <div className="desktop-area  p-0">
@@ -54,7 +46,7 @@ const DesktopArea = () => {
                                     <BarChart appointmentsData={appointmentsData} />
                                 </Col>
                                 <Col md={4} className="p-0 d-flex justify-content-end ">
-                                    <RightHalfContent selectedDate={selectedDate} appointmentsData={filteredAppointments} className="w-100" />
+                                    <DataContent selectedDate={selectedDate} appointmentsData={appointmentsData} doctorsData={doctorsData} />
                                 </Col>
                             </Row>
 
@@ -73,7 +65,6 @@ const DesktopArea = () => {
                             <MyCalendar onSelectDate={setSelectedDate} className="w-100 border-0" />
                             <AppointmentList
                                 filteredAppointments={filteredAppointments}
-                                chunkArray={chunkArray}
                                 patientData={patientData}
                                 doctorsData={doctorsData}
                             />

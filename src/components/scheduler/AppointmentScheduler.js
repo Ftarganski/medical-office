@@ -1,15 +1,47 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Form } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import MyCalendar from '../desktop/Calendar';
 
-import doctorsData from '../../database/doctors.json';
 import appointmentsData from '../../database/appointment.json';
-import patientsData from '../../database/patient.json';
+import doctorsData from '../../database/doctors.json';
+import patientData from '../../database/patient.json';
 
 import './Scheduler.css';
 
 const AppointmentScheduler = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [patientForm, setPatientForm] = useState({
+    patientName: '',
+    patientCPF: '',
+    patientBirthDate: '',
+    patientAddress: '',
+    patientPhone: '',
+    selectedDoctor: '',
+    selectedDay: '',
+    selectedTime: ''
+  });
+
+  const handlePatientFormChange = (event) => {
+    const { name, value } = event.target;
+    setPatientForm(prevForm => ({
+      ...prevForm,
+      [name]: value
+    }));
+  };
+
+  const handlePatientFormSubmit = (event) => {
+    event.preventDefault();
+    setPatientForm({
+      patientName: '',
+      patientCPF: '',
+      patientBirthDate: '',
+      patientAddress: '',
+      patientPhone: '',
+      selectedDoctor: '',
+      selectedDay: '',
+      selectedTime: ''
+    });
+  };
 
   const getDoctorsForSelectedDay = (selectedDate) => {
     const selectedDay = selectedDate.toLocaleDateString('en-US', { weekday: 'short' }).toLowerCase();
@@ -18,36 +50,9 @@ const AppointmentScheduler = () => {
 
   const doctorsForSelectedDay = getDoctorsForSelectedDay(selectedDate);
 
-  const generateTimeSlots = () => {
-    const timeSlots = [];
-    let currentTime = new Date(selectedDate);
-    currentTime.setHours(9, 0, 0, 0);
-
-    while (currentTime.getHours() <= 17) {
-      const formattedTime = currentTime.toLocaleTimeString('en-US', { hour12: false });
-
-      const doctorAppointment = appointmentsData.find(appointment =>
-        appointment.date === currentTime.toISOString().split('T')[0] &&
-        appointment.time === formattedTime
-      );
-
-      const patientName = doctorAppointment
-        ? patientsData.find(patient => patient.patientID === doctorAppointment.patientID).patientName
-        : '';
-
-      timeSlots.push({
-        time: currentTime.toLocaleTimeString('pt-BR', { hour: 'numeric', minute: '2-digit' }),
-        doctor: doctorAppointment ? doctorAppointment.doctorName : '',
-        patient: patientName,
-      });
-
-      currentTime.setHours(currentTime.getHours() + 1);
-    }
-
-    return timeSlots;
-  };
-
-  const timeSlots = generateTimeSlots();
+  const filteredAppointments = appointmentsData.filter(
+    (appointment) => appointment.date === selectedDate.toISOString().split('T')[0]
+  );
 
   return (
     <div className="scheduler-area p-0">
@@ -57,7 +62,7 @@ const AppointmentScheduler = () => {
             <div className="right-column p-3 d-flex flex-column justify-content-center align-items-center">
               <Row className="w-100">
                 <h2 className="mb-4">Médicos</h2>
-                <ul className="list-group w-100">
+                <ul className="list-group w-100 ">
                   {doctorsForSelectedDay.map((doctor, index) => (
                     <li key={index} className="list-group-item">
                       <span><strong>{doctor.doctorName}</strong> - {doctor.doctorArea}</span>
@@ -66,7 +71,7 @@ const AppointmentScheduler = () => {
                 </ul>
               </Row>
               <Row className="p-3">
-                <h2 className="mb-4">Agendar Consultas</h2>
+                <h2 className="mb-4">Consulte a data</h2>
                 <MyCalendar onSelectDate={setSelectedDate} className="w-100 border-0" />
               </Row>
             </div>
@@ -74,23 +79,148 @@ const AppointmentScheduler = () => {
 
           <Col md={4} className="h-100">
             <div className="middle-column p-3">
-            <h2 className="mb-4">Agenda</h2>
-              {timeSlots.map((slot, index) => (
-                <div key={index} className="time-slot my-2 pt-2 border-top">
-                  <strong>Horário:</strong> {slot.time}<br />
-                  <strong>Médico:</strong> {slot.doctor}<br />
-                  <strong>Paciente:</strong> {slot.patient}<br />
-                </div>
-              ))}
+              <h2 className="mb-4">Agenda</h2>
+
+              {Array.from({ length: 9 }, (_, i) => i + 9).map((hour) => {
+                const time = `${hour.toString().padStart(2, '0')}:00:00`;
+                const isLunchTime = time === '12:00:00';
+                const existingAppointment = filteredAppointments.find(
+                  (appointment) => appointment.time === time
+                );
+                const patient = existingAppointment ? patientData[existingAppointment.patientID] : null;
+                const doctor = existingAppointment ? doctorsData[existingAppointment.doctorID] : null;
+
+                return (
+                  <li key={time} className="list-group w-100">
+                    <div className="border-top w-100 py-2">
+                      <strong>Horário:</strong> {time}<br />
+                      {isLunchTime ? (
+          <strong >----- Almoço -----</strong>
+        ) : existingAppointment ? (
+          <>
+            <strong >Paciente:</strong> {patient?.patientName}<br />
+            <strong >Médico:</strong> {doctor?.doctorName}<br />
+          </>
+        ) : (
+          <>
+            <strong >Paciente:</strong> ---<br />
+            <strong >Médico:</strong> ---<br />
+          </>
+        )}
+                    </div>
+                  </li>
+                );
+              })}
+
             </div>
           </Col>
 
           <Col md={4} className="h-100">
             <div className="left-column p-3">
-              Paciente
+              <h2 className="mb-4">Paciente</h2>
+              <Form onSubmit={handlePatientFormSubmit}>
+
+                <Form.Group controlId="patientName" className="mb-4">
+                  <Form.Label>Nome</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="patientName"
+                    value={patientForm.patientName}
+                    onChange={handlePatientFormChange}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="patientCPF" className="mb-4">
+                  <Form.Label>CPF</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="patientCPF"
+                    value={patientForm.patientCPF}
+                    onChange={handlePatientFormChange}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="patientBirthDate" className="mb-4">
+                  <Form.Label>Data de Nascimento</Form.Label>
+                  <Form.Control
+                    type="date"
+                    name="patientBirthDate"
+                    value={patientForm.patientBirthDate}
+                    onChange={handlePatientFormChange}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="patientAddress" className="mb-4">
+                  <Form.Label>Endereço</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="patientAddress"
+                    value={patientForm.patientAddress}
+                    onChange={handlePatientFormChange}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="patientPhone" className="mb-4">
+                  <Form.Label>Telefone</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="patientPhone"
+                    value={patientForm.patientPhone}
+                    onChange={handlePatientFormChange}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="selectedDoctor" className="mb-4">
+                  <Form.Label>Médico</Form.Label>
+                  <Form.Control
+                    as="select"
+                    name="selectedDoctor"
+                    value={patientForm.selectedDoctor}
+                    onChange={handlePatientFormChange}
+                    required
+                  >
+                    <option value="">Selecione um médico</option>
+                    {doctorsForSelectedDay.map((doctor, index) => (
+                      <option key={index} value={doctor.doctorName}>{doctor.doctorName}</option>
+                    ))}
+                  </Form.Control>
+
+                </Form.Group>
+                <Form.Group controlId="selectedDay" className="mb-4">
+                  <Form.Label>Dia</Form.Label>
+                  <Form.Control
+                    type="date"
+                    name="selectedDay"
+                    value={patientForm.selectedDay}
+                    onChange={handlePatientFormChange}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="selectedTime" className="mb-4">
+                  <Form.Label>Horário</Form.Label>
+                  <Form.Control
+                    type="time"
+                    name="selectedTime"
+                    value={patientForm.selectedTime}
+                    onChange={handlePatientFormChange}
+                    required
+                  />
+                </Form.Group>
+
+
+                <Button type="submit" className="w-100 mt-2">Agendar</Button>
+              </Form>
             </div>
           </Col>
+
         </Row>
+
       </Container>
     </div>
   );

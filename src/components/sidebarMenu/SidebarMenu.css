@@ -6,6 +6,7 @@
     height: 100vh;
     background-color: #343a40;
     transition: width 0.3s ease-in-out;
+    z-index: 1000
 }
 
 .sidebar-menu.active {
