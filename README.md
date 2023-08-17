@@ -70,7 +70,7 @@ journey
 ```
 
 ## ⚙️ Linguagens de Programação Utilizadas
-[![My Skills](https://skillicons.dev/icons?i=react,js,html,css,materialui&theme=dark)](https://www.linkedin.com/in/targanski/)
+[![My Skills](https://skillicons.dev/icons?i=react,js,html,css,bootstrap,materialui&theme=dark)](https://www.linkedin.com/in/targanski/)
 
 ## 🖥️ Documentação de Implantação
 
