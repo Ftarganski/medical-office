@@ -100,7 +100,7 @@ npm start
 Este comando irá iniciar a aplicação no modo de desenvolvimento.
 
 5. Acesse a aplicação web no navegador utilizando o endereço local: 
-[http://localhost:3000](http://localhost:3000)
+`[http://localhost:3000](http://localhost:3000)`
 
 ### Build
 ```bash
