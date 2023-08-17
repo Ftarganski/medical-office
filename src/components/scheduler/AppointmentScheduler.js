@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import MyCalendar from '../desktop/Calendar';
 import { useCPFInput } from '../../hooks/useCPFInput'
+import { usePhoneMask } from "../../hooks/usePhoneMask"
 
 import appointmentsData from '../../database/appointment.json';
 import doctorsData from '../../database/doctors.json';
@@ -13,6 +14,7 @@ const AppointmentScheduler = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const { formattedCPF, isCPFValid, handleCPFChange } = useCPFInput();
+  const { formattedPhone, handlePhoneChange } = usePhoneMask();
 
   const [patientForm, setPatientForm] = useState({
     patientName: '',
@@ -182,8 +184,12 @@ const AppointmentScheduler = () => {
                   <Form.Control
                     type="text"
                     name="patientPhone"
-                    value={patientForm.patientPhone}
-                    onChange={handlePatientFormChange}
+                    value={formattedPhone}
+                    onChange={(e) => {
+                      handlePhoneChange(e.target.value);
+                      handlePatientFormChange(e);
+                    }}
+                    maxLength={16}
                     required
                   />
                 </Form.Group>
