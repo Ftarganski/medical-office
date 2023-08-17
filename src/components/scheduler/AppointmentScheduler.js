@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import MyCalendar from '../desktop/Calendar';
+import { useCPFInput } from '../../hooks/useCPFInput'
 
 import appointmentsData from '../../database/appointment.json';
 import doctorsData from '../../database/doctors.json';
@@ -10,6 +11,9 @@ import './Scheduler.css';
 
 const AppointmentScheduler = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const { formattedCPF, isCPFValid, handleCPFChange } = useCPFInput();
+
   const [patientForm, setPatientForm] = useState({
     patientName: '',
     patientCPF: '',
@@ -95,18 +99,18 @@ const AppointmentScheduler = () => {
                     <div className="border-top w-100 py-2">
                       <strong>Horário:</strong> {time}<br />
                       {isLunchTime ? (
-          <strong >----- Almoço -----</strong>
-        ) : existingAppointment ? (
-          <>
-            <strong >Paciente:</strong> {patient?.patientName}<br />
-            <strong >Médico:</strong> {doctor?.doctorName}<br />
-          </>
-        ) : (
-          <>
-            <strong >Paciente:</strong> ---<br />
-            <strong >Médico:</strong> ---<br />
-          </>
-        )}
+                        <strong >----- Almoço -----</strong>
+                      ) : existingAppointment ? (
+                        <>
+                          <strong >Paciente:</strong> {patient?.patientName}<br />
+                          <strong >Médico:</strong> {doctor?.doctorName}<br />
+                        </>
+                      ) : (
+                        <>
+                          <strong >Paciente:</strong> ---<br />
+                          <strong >Médico:</strong> ---<br />
+                        </>
+                      )}
                     </div>
                   </li>
                 );
@@ -136,10 +140,19 @@ const AppointmentScheduler = () => {
                   <Form.Control
                     type="text"
                     name="patientCPF"
-                    value={patientForm.patientCPF}
-                    onChange={handlePatientFormChange}
+                    value={formattedCPF}
+                    onChange={(e) => {
+                      handleCPFChange(e.target.value);
+                      handlePatientFormChange(e);
+                    }}
+                    className={`form-control ${!isCPFValid ? 'is-invalid' : ''}`}
                     required
                   />
+                  {!isCPFValid && (
+                    <div className="invalid-feedback" style={{ color: 'red' }}>
+                      CPF inválido
+                    </div>
+                  )}
                 </Form.Group>
 
                 <Form.Group controlId="patientBirthDate" className="mb-4">
