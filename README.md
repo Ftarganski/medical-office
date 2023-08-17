@@ -8,7 +8,7 @@ Esta é a solução encontrada para o desafio de Frontend React JS da empresa [A
 
 ## 📋 Demanda
 - [x] Desenvolver o front-end para um WebApp de consultório médico,
-- [x] Utilizar HTML, CSS, Bootstrap e React;
+- [x] Utilizar HTML, CSS, JS, Bootstrap e React;
 - [x] Utilização de padrões de sintaxe e semântica de código;
 - [x] Utilizar componentização para facilitar a implementação em futuras aplicações.
 
