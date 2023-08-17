@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom'
 import DesktopArea from '../components/desktop/DesktopArea';
 import AppointmentScheduler from '../components/scheduler/AppointmentScheduler';
-import Financial from '../components/viewer/Financial';
+import Financial from '../components/financial/Financial';
 
 const RoutesApp = () => {
     return (

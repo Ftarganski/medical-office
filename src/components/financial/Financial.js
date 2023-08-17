@@ -18,7 +18,6 @@ const Financial = () => {
   const [sortBy, setSortBy] = useState('date-asc');
   const [doctorFilter, setDoctorFilter] = useState('');
 
-  const today = new Date().toISOString().split('T')[0];
   const twoDaysAgo = new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
   const twoDaysLater = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 

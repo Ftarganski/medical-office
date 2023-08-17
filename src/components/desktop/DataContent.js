@@ -51,26 +51,39 @@ const DataContent = ({ selectedDate, appointmentsData }) => {
         return doctor ? doctor.doctorName : "ERROR";
     };
 
+    const calculateTotalValue = () => {
+        const filteredAppointments = appointmentsData.filter(
+            appointment => appointment.date === selectedDate.toISOString().split('T')[0]
+        );
+        const totalValue = filteredAppointments.reduce((sum, appointment) => sum + appointment.value, 0);
+        return totalValue;
+    };
+
+    const formattedValue = (value) => {
+        return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    };
+
     return (
         <Col md={10} className="d-flex flex-column">
-            <Row className="h-50 box mb-3 p-3 rounded bg-primary text-center">
-                <h4 className="text-white">Lotação Diária</h4>
+            <Row className="h-30 box mb-3 p-3 rounded bg-primary text-center">
+                <h4 className="text-white">Lotação Diária:</h4>
                 <h3 className="text-white">{occupancyPercentage.toFixed(2)}%</h3>
             </Row>
-            <Row className="h-50 box mb-3 p-3 rounded bg-secondary text-center">
-                
-                    <h4 className="text-white">Médico</h4>
-                    {doctorStats.length > 0 && (
-                    <div className="">
+
+            <Row className="h-30 box mb-3 p-3 rounded bg-secondary text-center">
+                <h4 className="text-white">Consultas Diárias:</h4>
+                {doctorStats.length > 0 && (
+                    <div className="d-flex flex-row justify-content-center">
                         <h3 className="text-white">
-                            {getDoctorName(doctorStats[currentDoctorIndex].doctorID)}
+                            {getDoctorName(doctorStats[currentDoctorIndex].doctorID)} - {doctorStats[currentDoctorIndex].appointments}
                         </h3>
-                        <h4 className="text-white">
-                            Consultas: {doctorStats[currentDoctorIndex].appointments}
-                        </h4>
                     </div>
                 )}
-                
+            </Row>
+
+            <Row className="h-30 box mb-3 p-3 rounded bg-primary text-center">
+                <h4 className="text-white">Recebimento Diário:</h4>
+                <h3 className="text-white">{formattedValue(calculateTotalValue())}</h3>
             </Row>
         </Col>
     );

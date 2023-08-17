@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaPhone } from 'react-icons/fa'
 
 const AppointmentList = ({ filteredAppointments, patientData, doctorsData }) => {
     return (
@@ -13,7 +14,8 @@ const AppointmentList = ({ filteredAppointments, patientData, doctorsData }) => 
                         <li key={index} className="list-group-item">
                             <div>
                                 <strong>Paciente:</strong> {patient?.patientName}<br />
-                                <strong>Fone:</strong> {patient?.patientPhone} <br />
+                                <strong>Fone:</strong> {patient?.patientPhone} <a href={`tel:${patient?.patientPhone}`}>
+                                    <FaPhone />        </a> <br />
                                 <strong>Médico:</strong> {doctor?.doctorName}<br />
                                 <strong>Horário:</strong> {appointment.time}
                             </div>
