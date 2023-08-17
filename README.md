@@ -30,14 +30,11 @@ Na organização do código buscou-se seguer os seguintes princípios:
 Para a realização do desafio estabeleci alguns parâmetros a seguir no desenvolvimento
 - Inicialmente o projeto foi dividido em 3 partes principais `/desktop`, `/scheduler`, `/financial`, e dois módulos secundários `/header`, `/sidebarMenu`, seguindo a lógica de que cada componente será reutilizado em outros projetos. 
 - A seção `/DesktopArea.js`, que renderiza o principal contexto do projeto, foi subdividida em outros componentes para apresentação dos resultados na tela, são eles: `/BarChart.js` (gráfico de consultas diárias na semana atual), `/DataContent.js` (box com informações de lotação diária e consultas diárias por médico), `/InsuranceTable.js` (tabela de acompanhamento das aprovações via convênio médico), `/Calendar.js` (calendário para consulta) e `/AppointmentList.js` (lista de agendamentos para o dia selecionado).
+- A seção `/AppointmentScheduler.js`, que renderiza o contexto de agendamento de consulta, foi subdividida em áreas para apresentação dos resultados na tela, são eles: `Lista de Médicos` (lista de médicos que atendem no dia selecionado), `Agenda` (agenda diária demonstrando slots de tempo com e sem agendamento de pacientes), `Paciente` (formulário para criar paciente e realizar o agendamento da consulta).
+- A seção `/Financial.js`, que renderiza o contexto de controle financeiro, apresenta uma tabela com as consultas realizadas na semana atual com possibilidades de filtragem e selecção por data, paciente e médico. Na mesma tabela pode-se verificar os pagamentos realizados.
 
-- A seção `/AppointmentScheduler.js`, que renderiza o contexto de agendamento de consulta, foi subdividida em áreas para apresentação dos resultados na tela, são eles: Lista de Médicos`/BarChart.js` (gráfico de consultas diárias na semana atual), `/DataContent.js` (box com informações de lotação diária e consultas diárias por médico), `/InsuranceTable.js` (tabela de acompanhamento das aprovações via convênio médico), `/Calendar.js` (calendário para consulta) e `/AppointmentList.js` (lista de agendamentos para o dia selecionado).
-
-- Do componente `/GridVideos.tsx` deriva `/ModalVideo.tsx` que é responsável pela renderização do modal quando um dos vídeos é selecionado.
-- Foi gerado um arquivo `/videos.json` para consumo de informações pelo `/GridVideos.tsx`. Este é o arquivo de entrada de todas as informações relativas aos vídeos.
-
-### Expansibilidade
-Prevendo a possibilidade de extensão futura do site para novas linguagens (atingir novos mercados) já foi incluído um sistema de consumo de texto via `/texts.json` com a utilização de uma util `/textUtils.ts` com similaridade ao sistema `/i18n`. Desta forma, futuramente, ao se optar por um sistema de tradução do site para outras línguas, já teremos um consumível em JSON funcional, bastando adicionar as traduções desejadas.
+### Simulação Banco de Dados
+- Para popular as informações e simular um banco de dados ativo foram criados arquivos `.json` na pasta `/database`, seprarados em 5 arquivos: `appointment.json`, `doctors.json`, `insuranceAproval.json`, `insuranceCompany.json`, `patient.json`.
 
 ### Organograma Estrutural
 ```mermaid
