@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../../index.css';
-import './SidebarMenu.css';
+
 import { FaAnglesRight, FaAnglesLeft } from "react-icons/fa6";
 import { BsCalendarPlus, BsCalendar2Month } from "react-icons/bs";
 import { MdOutlineDashboard } from "react-icons/md";
+
+import '../../index.css';
+import './SidebarMenu.css';
 
 const SidebarMenu = () => {
   const [menuActive, setMenuActive] = useState(false);

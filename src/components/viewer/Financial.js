@@ -46,44 +46,43 @@ const Financial = () => {
       (!doctorFilter || (doctors[appointment.doctorID]?.doctorName || '').toLowerCase().includes(doctorFilter.toLowerCase()))
   );
 
-
   return (
     <div className="viewer-area p-0">
       <Container fluid className="h-100 p-0">
         <Row className="h-100">
           <Col md={12} className="h-100">
             <div className="right-column p-3 d-flex flex-column justify-content-center align-items-center">
-            <Row className="w-100">
-              <h2 className="mb-4">Controle Financeiro</h2>
-              <div className="container">
-                <div className="row">
-                  <div className="col-md-4">
-                  </div>
+              <Row className="w-100">
+                <h2 className="mb-4">Controle Financeiro</h2>
+                <div className="container">
+                  <div className="row">
+                    <div className="col-md-4">
+                    </div>
 
-                  <div className="col-md-4">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Filtrar por nome do médico"
-                      value={doctorFilter}
-                      onChange={(e) => setDoctorFilter(e.target.value)}
-                    />
-                  </div>
+                    <div className="col-md-4">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Filtrar por nome do médico"
+                        value={doctorFilter}
+                        onChange={(e) => setDoctorFilter(e.target.value)}
+                      />
+                    </div>
 
-                  <div className="col-md-4">
-                    <select
-                      className="form-select"
-                      value={sortBy}
-                      onChange={(e) => setSortBy(e.target.value)}
-                    >
-                      <option value="date-asc">Ordenar por Data (Crescente)</option>
-                      <option value="date-desc">Ordenar por Data (Decrescente)</option>
-                      <option value="name-asc">Ordenar por Nome (Crescente)</option>
-                      <option value="name-desc">Ordenar por Nome (Decrescente)</option>
-                    </select>
+                    <div className="col-md-4">
+                      <select
+                        className="form-select"
+                        value={sortBy}
+                        onChange={(e) => setSortBy(e.target.value)}
+                      >
+                        <option value="date-asc">Ordenar por Data (Crescente)</option>
+                        <option value="date-desc">Ordenar por Data (Decrescente)</option>
+                        <option value="name-asc">Ordenar por Paciente (Crescente)</option>
+                        <option value="name-desc">Ordenar por Paciente (Decrescente)</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
-              </div>
               </Row>
 
               <Table striped bordered className="mt-4">
