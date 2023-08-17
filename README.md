@@ -40,20 +40,18 @@ Para a realização do desafio estabeleci alguns parâmetros a seguir no desenvo
 ```mermaid
 %%{init: { 'theme': 'dark' } }%%
 flowchart TD;
-    HeadSite-->index;
-    index-->Landing;
-    Landing-->HeroLogo;
-    Landing-->Hero;
-    Landing-->Main;
-    Landing-->Advertise;
-    Landing-->Footer;
-    Main-->Dropdown;
-    Main-->GridVideos;
-    GridVideos-->ModalVideo;
-    styles.ts-->components;
-    types.ts-->components;
-    videos.json-->Consumo-GridVideos;
-    videos.json-->Consumo-Dropdown;
+    App.js-->Routes.js;
+    App.js-->Header.js;
+    App.js-->SidebarMenu.js;
+    Routes.js-->DesktopArea.js;
+    Routes.js-->AppointmentScheduler.js;
+    Routes.js-->Financial.js;
+    DesktopArea.js-->BarChart.js;
+    DesktopArea.js-->DataContent.js;
+    DesktopArea.js-->InsuranceTable.js;
+    DesktopArea.js-->Calendar.js;
+    DesktopArea.js-->AppointmentList.js;
+    AppointmentScheduler.js-->Calendar.js
 ```
 
 ### Linha do Tempo
@@ -61,15 +59,14 @@ flowchart TD;
 %%{init: { 'theme': 'dark' } }%%
 journey
     section Planejamento
-      23/06: 5
+      16/08: 5
     section Execução
-      23/06: 5
-      24/06: 3
-      25/06: 5
+      16/08: 5
+      17/08: 3
     section Deploy
-      25/06: 5
+      17/08: 5
     section Documentação
-      25/06: 5
+      17/08: 5
 ```
 
 ## ⚙️ Linguagens de Programação Utilizadas
